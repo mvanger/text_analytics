@@ -1,0 +1,69 @@
+import re
+
+str1 = 'we love Text Analytics!'
+str2 = ', and the price of the mouse was $43.45.'
+str3 = 'Oh captain, my captain!'
+str4 = 'C:\\Program Files'
+test_strings = [str1, str2, str3, str4]
+
+print(test_strings)
+print(str4)
+
+for test_string in test_strings:
+  print('The test string is "' + test_string + '"')
+  match = re.search('[a-z]', test_string)
+  if match:
+    print('The first possible match is:', match.group(), 'spanning characters', match.start(), 'to', match.end())
+  else:
+    print('no match')
+
+for string in test_strings:
+  print(string, "\t--->\t", re.findall('[A-Z]', string))
+
+print(str4) # backslash things
+print(re.search('\', str4).group()) # no
+print(re.search('\\', str4).group()) # no
+print(re.search('\\\\', str4).group()) # yes
+print(re.search(r'\\', str4).group()) # yes
+
+for string in test_strings:
+  matches = re.finditer('[A-Z]', string)
+  print(string)
+  for m in matches:
+    print("Found: ", m.group(), "at position", m.start())
+
+# shorthand characters
+patterns = ['.', # any character
+            '\w', # any Unicode word character. In ASCII this is the equivalent of [a-zA-Z0-9]
+            '\W', # any non Unicode word character. In ASCII this is the equivalent of [^a-zA-Z0-9_]
+            '\d', # any Unicode digit. [0-9]
+            '\D', # any non digit. [^0-9]
+]
+
+# regex to detect prices
+test_strings = [
+'The price of the mouse was $43.45',
+'That pencil costs 95 cents',
+'I paid $1000 for it',
+'Three dollars!',
+'How much is one billion RMB in dollars',
+'Today it is Oct 2'
+]
+
+
+PATTERN_THAT_MATCHES_ALL_PRICES = '\$\d\d*(\.\d\d)?' # ? means 0 or 1
+# PATTERN_THAT_MATCHES_ALL_PRICES = '(\$\d\d*\.\d\d)|(\$\d\d*)'
+
+
+
+for test_string in test_strings:
+  match = re.search(PATTERN_THAT_MATCHES_ALL_PRICES, test_string)
+  if (match):
+    print(test_string, "\t--->\t", match.group())
+  else:
+    print(test_string, "\t--->\t", "No price found")
+
+
+
+
+

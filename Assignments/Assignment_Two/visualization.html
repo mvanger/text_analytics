@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>Class Bios Viz</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <style type="text/css">
+
+    #text_here {
+      color: grey;
+      font-size: 72px;
+      text-align: center;
+      margin-top: 200px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="text_here"></div>
+  <script type="text/javascript">
+    var data = [["Sat",1],
+     ["January",1],
+     ["November",1],
+     ["1985",1],
+     ["1990's",1],
+     ["This Year",1],
+     ["December",2],
+     ["2011",2],
+     ["2012",2],
+     ["Today",3],
+     ["May",3],
+     ["2013",3]];
+
+    $('#text_here').html(data[0][0]);
+
+    var data_index = 0;
+    function call_timeout(){
+      setTimeout(display, data[data_index % 12][1] * 500);
+    }
+
+    function display(){
+      $('#text_here').html(data[data_index % 12][0]);
+      data_index++;
+      call_timeout();
+    }
+
+    display();
+
+  </script>
+</body>
+</html>

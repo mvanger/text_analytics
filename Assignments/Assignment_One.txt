@@ -1,0 +1,11 @@
+Mike Vanger
+Text Analytics
+Assignment One
+
+I am taking this class because I am not interested in credit risk or healthcare very much, and the Watson one did not seem like it taught anything. The reviews from last year were generally good, and I enjoyed the Professor's Python course. There exists a large amount of textual data, so this class seemed like it would have the most positive impact on my skillset. Aniket says his favorite type of analysis is text analytics, and I think Aniket's judgement is usually sound.
+
+As to my background, I graduated in 2012 from New York University with double majors in mathematics and art history. I discovered that neither of these fields made me very employable, so after bouncing around for a year I learned full stack web development at General Assembly in New York, and then transitioned directly after into the MSiA program. As such, I enjoy the programming part of analytics, or data science, more than the statistics or business sides.
+
+It's difficult to see what lies ahead; always in motion is the future. In the short term I intend to find a job, but the specific nature, location, or industry of that job is still a mystery to me. It could perhaps have nothing or everything to do with text analytics.
+
+I'm currently reading Jose Batlle y Ordonez of Uruguay, The Creator of His Times, and I think it might be interesting to do some sort of project with that text. Although again the specific nature is still unknown. Perhaps it will be revealed in the coming weeks. It is also possible that I find it difficult to procure a digital copy of the manuscript.
