@@ -2,21 +2,14 @@ i was born in blackfoot idaho on november 20, 1985 and grew up in aberdeen idaho
 between my junior and senior year i married my wife lori and in 2011 i graduated with my bachelor’s degree
 in 2012 i started looking for programs in analytics to apply to, and this same year my wife and i had our daughter hailey
 upon graduating in 2011, he began working at eat24hours as a quantitative analyst
-i graduated last year from the university of portland in portland, oregon where i majored in operations and technology management and minored in mathematics
 (this may sound old school, but it was the 1990’s and i simply couldn’t just type “words with lots of z’s” into google!) when my dad came home from work that night, he saw that i was studying the dictionary very intensely and asked what i was up to
 my immediate plan after graduation is to go back to my high school to teach a week-long course in analytics in january 2014
 there was a lot of consistency in how someone might refuse to answer a question, but not necessarily in how they may try to use a lot of convincing language to possibly mask more underwhelming performance
-coming in with limited knowledge, i have gained a lot through the last year in this program
 early 2013, i read a blog and tutorial about sentiment analysis using the “twitter” package in r
-during my practicum project last year, my team worked with chicago park district registration data and we learned the difficulty in trying to match up multiple occurrences of the same customer when dealing with user free-form input data such as names, email, addresses, and ages
 after i graduate in december, i hope to return to the southern california area
 there was a rich set of data that just sat there
 after getting my bs in industrial engineering here at northwestern, i joined the alpha cohort (class of 2013) of ms in analytics students
-in the last year, i have met many amazing people and learned a tremendous amount
 i am a currently master’s student in msia program at northwestern university and expected to graduate in december, 2013
-although i had originally considered being an actuary, i found my true passion lay in broad data analytics field after a summer internship in an investment company last year
-last year in china, the biggest online market (alibaba) bought the biggest micro-blog company (like twitter)
 i returned to northwestern in septmember of 2013 to join the "beta" cohort and earn a masters of science in analytics degree from the mccormick school of engineering
 of course, our professor is an expert in this field so it is a privilege to continue to learn from him -  you never know what interesting or even crucial tidbit he may mention that could have a real impact on  my career after this course
-the reviews from last year were generally good, and i enjoyed the professor's python course
 as to my background, i graduated in 2012 from new york university with double majors in mathematics and art history

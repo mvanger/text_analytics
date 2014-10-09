@@ -21,6 +21,8 @@ At this point I thought of some relative timepoints, and decided to check for "t
 This gave three results, but all of which used "today" in a general sense (ie "today's data scientist"). I decided against including this regex.
 Next I tried combinations of "this" and "year|month|week"
 That only gave one result, which was not a time point, so I rejected this as well.
+Then I tried combinations of "last" and "year|month|week"
+This gave seven results, most of which seemed reasonable.
 I did not attempt any other relative times.
 
 I next attempted to look for times. The most basic was something like 12:00. I used military time. I don't know if 24:00 is a time or if it is 00:00. I used 00:00 Regex = /(1[0-9]|2[0-3]|(^|\D)[0-9]):([0-5][0-9]){1}/
@@ -30,6 +32,6 @@ There were no matches.
 For "4 am", the regex I used was /(^|\D)([1-9]|10|11|12)\s(am|pm)($|\W)/
 Again, there were no matches.
 
-These were all I have thought of so far. I did not consider something like October 9, 2014, since it is included already. I combined them all and output the results. There are 15 lines. The only questionable lines have already been addressed above (for instance, "class of 2013" and "he may mention"). I used Ruby for this project.
+These were all I have thought of so far. I did not consider something like October 9, 2014, since it is included already. I combined them all and output the results. There are 22 lines. The only questionable lines have already been addressed above (for instance, "class of 2013" and "he may mention"). I used Ruby for this project.
 
 For a visualization, I found every matching string and counted the frequency of its occurence. I included the the results for "today" as well. Then I displayed each match (not the whole sentence) for a period of time proportional to its frequency. It can be viewed at http://jorge-text-viz.herokuapp.com/
