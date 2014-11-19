@@ -1,0 +1,103 @@
+Mike Vanger
+Text Analytics Assignment 5
+
+1) I used the Ruby library Nokogiri to scrape the data from Wikipedia.
+For each country, Wikipedia uses some combination of nothing, bold, or italics.
+The countries in only bold are UN member states.
+Those are the countries I decided to include.
+This also includes the Vatican, which I guess has a special UN designation.
+So this gave me 194 countries.
+For each country, I took the first listed capital.
+In every case, this was listed as either the official or the administrative seat, so I figured it was ok for this assignment.
+So, I also had 194 capitals.
+I wrote this to a CSV file which had five fields for continent, country, capital, country_text, and capital_text.
+Antarctica does not have any UN member states.
+
+I used the Java implementation of Lucene to index them.
+
+2a)
+Greek AND Roman AND NOT Persian
+Number of hits: 23
+Tunis
+Sofia
+Tripoli
+Algiers
+Lisbon
+Bern
+Bucharest
+Skopje
+Ljubljana
+Monaco
+Podgorica
+Bangui
+Montevideo
+Cairo
+Budapest
+Bratislava
+Madrid
+Berlin
+Warsaw
+Amsterdam
+Havana
+Buenos Aires
+Copenhagen
+
+b)
+like Shakespeare
+Number of hits: 4
+London
+Cairo
+Prague
+Washington, D.C.
+
+c)
+Phrase "located below sea level"
+Number of hits: 1
+Baku
+
+A quick Google search revealed that Baku and Amsterdam are the two capitals below sea level.
+A closer inspection of Amsterdam's wiki page shows that it says "situated...below sea level"
+So, the phrase query "located below sea level" did not return Amsterdam.
+If we use the phrase query "situated below sea level" we get Amsterdam, but not Baku.
+But this is okay.
+
+3.1) I first counted the number of unique terms in the corpus, and got 51,493.
+Then, for each continent I created a term frequency vector, and found the sum of all terms.
+I used these two numbers to compute the mutual information score for each term in the term frequency vector.
+
+3.2)
+This table is in the file term_matrix.xlsx
+Terms are listed from low to high.
+So, "city" had the highest score for five of the six continents.
+
+3.3)
+This is also in the term_matrix.xlsx file.
+There are 66 unique terms (out of the 180).
+
+3.4)
+I used the stuff-classifier Ruby gem.
+
+3.5)
+The confusion matrix is in the confusion_matrix.xlsx file.
+The tool was unable to classify Tunis and Mogadishu, returning nil values for those two capitals.
+Otherwise, it correctly classified 137 of the 194 capitals (70.6%).
+It did very poorly on African cities, classifying 44 of 52 into Europe.
+Perhaps this is because of Europe's extensive colonization of Africa?
+
+3.6)
+I tried a few cities.
+Cambridge, MA and Evanston, IL were both incorrectly classified to Europe.
+New York City was correctly assigned North America.
+Hong Kong was correctly assigned Asia.
+Punta del Este, Uruguay, was correctly assigned South America.
+
+If I understand the documentation correctly, the probabilities for Cambridge are:
+[[:europe, 2.0147277279772495e+184],
+ [:north_america, 1.3362883964012914e-104],
+ [:asia, 8.95431085008665e-165],
+ [:south_america, 6.8289618001197145e-205],
+ [:africa, 0.0],
+ [:oceania, 0.0]]
+Obviously these are not probabilities.
+But, we can look at them as relative, and see that they are listed in descending order.
+The documentation for this tool is not very good.
