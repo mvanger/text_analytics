@@ -1,0 +1,90 @@
+1)
+Edit: I was confused about the TF matrix, and built it summing across documents for each (resulting in an n x 1 vector, rather than n x 42). Unfortunately I didn't have time to fix it.
+This uses the StandardAnalyzer:
+Term Frequency Top 10:
+i=485
+my=191
+analytics=181
+text=158
+data=118
+from=78
+have=73
+am=67
+more=57
+class=55
+
+TF-IDF (using Math.log10()) Top 10:
+â=2.0376202031649364
+her=1.7749771702715547
+she=1.6907926843903092
+maintenance=1.371804793769799
+shawna=1.371804793769799
+michigan=1.371804793769799
+his=1.2787536009528289
+video=1.2631334650074886
+words=1.2483122772269866
+game=1.2368798816733575
+
+2)
+Top 10 T from my bio:
+i=11
+text=4
+analytics=4
+very=2
+am=2
+still=2
+find=2
+york=2
+from=2
+one=2
+
+If k = 1, the T summary is {i}
+If k = 3, the T summary is {i, text, analytics}
+If k = 5, the T summary is {i, text, analytics, very, am}
+And if k = 10, the T summary is {i, text, analytics, very, am, still, find, york, from, one}
+Although, terms from position 4 onwards to 28 all have a frequency of 2, so those could just as easily be replaced. This does not seem very good! Let's try it using the matrix M:
+his=1.2787536009528289
+enjoy=0.9404713064930467
+credit=0.9241916261733354
+reviews=0.8800789171124
+perhaps=0.8450980400142568
+still=0.8155715246051087
+healthcare=0.8155715246051087
+coming=0.8155715246051087
+reading=0.810361020096253
+enjoyed=0.810361020096253
+
+If k = 1, the M summary is {his}
+If k = 3, the M summary is {his, enjoy, credit}
+If k = 5, the M summary is {his, enjoy, credit, reviews, perhaps}
+If k = 10, the M summary is {his, enjoy, credit, reviews, perhaps, still, healthcare, coming, reading, enjoyed}
+So, we see that most notably "text" and "analytics" have dropped out, since they are very popular in this corpus. This should be okay since we know, as a user, that all of the documents are about text analytics. So the M matrix one is more interesting. It also contains fewer popular, but boring, words such as very, am, and from. I think k = 5 is a reasonable selection. It lets us know the document talks about a man ("his"), and presumably this man "enjoys" things. Possibly things he enjoys include "credit", "reviews", and uncertainty ("perhaps"). A closer look at the document reveals that he actually dislikes credit! So perhaps this is not the best means of summarization.
+
+
+3)
+First sentence of classbios.txt, tagged with POS:
+I PRP
+was VBD
+born VBN
+in IN
+Blackfoot NNP
+Idaho NNP
+on IN
+November NNP
+20 CD
+, ,
+1985 CD
+and CC
+grew VBD
+up RP
+in IN
+Aberdeen NNP
+Idaho NNP
+, ,
+which WDT
+consists VBZ
+of IN
+about IN
+1200 CD
+people NNS
+. .

@@ -184,4 +184,25 @@ public class BioSearcher {
     // reader can only be closed when there is no need to access the documents any more.
     reader.close();
   }
+
+  public void readingIndex(Directory theIndex, int docNbr) {
+    IndexReader reader = DirectoryReader.open(theIndex);
+
+    Document doc = reader.document(docNbr);
+    System.out.println("Processing file: "+doc.get("id"));
+
+    Terms termVector = reader.getTermVector(docNbr, "contents");
+    TermsEnum itr = termVector.iterator(null);
+    BytesRef term = null;
+
+    while ((term = itr.next()) != null) {
+        String termText = term.utf8ToString();
+        long termFreq = itr.totalTermFreq();   //FIXME: this only return frequency in this doc
+        long docCount = itr.docFreq();   //FIXME: docCount = 1 in all cases
+
+        System.out.println("term: "+termText+", termFreq = "+termFreq+", docCount = "+docCount);
+    }
+
+    reader.close();
+}
 }
